@@ -20,3 +20,10 @@ plt.show()
 AOI = gpd.read_file('./Shapefiles/area_of_interest_.shp')
 AOI.plot()
 plt.show()
+
+# Display both shapefiles together
+fig, ax = plt.subplots(1)
+cities.plot(ax=ax, cmap = 'rainbow', column = 'NAME_4')
+AOI.plot(ax=ax, facecolor = 'yellow')
+plt.title('Belgian Cities with AOI Plot')
+plt.show()
