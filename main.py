@@ -1,16 +1,12 @@
-# This is a sample Python script.
+import geopandas as gpd 
+import matplotlib.pyplot as plt
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Importing and plotting the cities shapefile 
+cities = gpd.read_file('./Shapefiles/belgian_cities.shp')
+cities.plot()
+plt.title('Default Cities Shapefile Plot')
+plt.show()
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+cities.plot(cmap='jet', column='NAME_4', figsize=(15, 15))
+plt.title('Cities Shapefile Plot with Custom Styling')
+plt.show()
